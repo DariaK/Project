@@ -1,0 +1,168 @@
+
+		
+CREATE TABLE HotelClass (
+  PK_HotelClass SERIAL NOT NULL,
+  Category  varchar(64) DEFAULT NULL,
+  Percent INTEGER DEFAULT NULL,
+   constraint PK_HotelClass_Hotel primary key (PK_HotelClass)
+);
+
+
+	
+CREATE TABLE RoomType (
+   PK_RoomType SERIAL NOT NULL,
+   NameRoom  varchar(64) DEFAULT NULL,
+   Cost INTEGER NOT NULL,
+   constraint PK_RoomType_Room primary key (PK_RoomType)
+);
+
+
+CREATE TABLE HotelBuilding (
+   PK_HotelBuilding SERIAL NOT NULL,
+   FK_HotelClass INTEGER NOT NULL,
+   Floors INTEGER,
+   Rooms INTEGER, 
+   DryCleaning  varchar(2) DEFAULT NULL,
+   Laundry varchar(2) DEFAULT NULL,
+   Food varchar(2) DEFAULT NULL,
+   Cleaning varchar(2) DEFAULT NULL,  
+   Pool  varchar(2) DEFAULT NULL,
+   Sauna varchar(2) DEFAULT NULL,
+   Billiards varchar(2) DEFAULT NULL,
+  constraint PK_HotelBuilding_Hotel primary key (PK_HotelBuilding),
+  constraint  FK_HotelClass_Hotel foreign key (FK_HotelClass) references HotelClass (PK_HotelClass)
+);
+
+
+		
+  
+  
+  	
+CREATE TABLE Organization (
+   PK_Organization SERIAL NOT NULL,
+   NameOrganization varchar(64) NOT NULL,
+   AddressOrganization varchar(128) NOT NULL,
+  constraint PK_Organization_organization primary key (PK_Organization),
+  constraint NA_NameOrganization UNIQUE(NameOrganization)
+);
+
+
+	
+CREATE TABLE Client (
+   PK_client SERIAL NOT NULL,
+   FK_Organization INTEGER DEFAULT NULL,
+   Surname varchar(64) NOT NULL,
+   Name varchar(64) NOT NULL,
+   Patronymic varchar(64) NOT NULL,
+   PhoneNumber varchar(24) NOT NULL,
+   PassportID varchar(24) NOT NULL,
+   Address varchar(128) NOT NULL,
+   constraint PK_client_client primary key (PK_client),
+   constraint FK_Organization_Org foreign key (FK_Organization) references Organization (PK_Organization),
+   constraint ID_PassportID UNIQUE(PassportID)
+);
+
+
+		
+CREATE TABLE Objective (
+   PK_Objective SERIAL NOT NULL,
+   NameObjective varchar(64) DEFAULT NULL,
+   constraint PK_Objective_Obj primary key (PK_Objective)
+);
+
+  	
+CREATE TABLE Contract (
+   PK_Contract SERIAL NOT NULL,
+   FK_Organization INTEGER NOT NULL,
+   FK_Objective INTEGER NOT NULL,
+   Date_Contract DATE,
+   constraint PK_Contract_Cont primary key (PK_Contract),
+   constraint FK_Organization_Org foreign key (FK_Organization) references Organization (PK_Organization),
+   constraint FK_Objective_Obj foreign key (FK_Objective) references Objective (PK_Objective)
+);
+
+
+	
+CREATE TABLE Room (
+   PK_Room SERIAL NOT NULL,
+   FK_Hotel INTEGER NULL,
+   FK_RoomType INTEGER DEFAULT NULL,
+   NumberRoom INTEGER NOT NULL,
+   FreePlaces INTEGER DEFAULT NULL,
+   Floors INTEGER NOT NULL,
+   constraint PK_Room_Room primary key (PK_Room),
+   constraint FK_RoomType_Room foreign key (FK_RoomType) references RoomType (PK_RoomType),
+   constraint FK_Hotel_Corpus foreign key (FK_Hotel) references HotelBuilding (PK_HotelBuilding)
+);
+
+
+CREATE TABLE RoomsExist (
+   PK_RoomsExist SERIAL NOT NULL,
+   FK_Room INTEGER NOT NULL,
+   FreePlaces INTEGER DEFAULT NULL,
+   StateRoom varchar(16) DEFAULT NULL,
+   constraint PK_RoomsExist_Rooms primary key (PK_RoomsExist),
+   constraint FK_Room_Room foreign key (FK_Room) references Room (PK_Room)
+  );
+	
+CREATE TABLE Reservation (
+   PK_Reservation SERIAL NOT NULL,
+   FK_Contract INTEGER DEFAULT NULL,
+   FK_Hotel INTEGER DEFAULT NULL,
+   NumberOfRooms INTEGER DEFAULT NULL,
+   NumberOfPlaces INTEGER DEFAULT NULL,
+   EntryDate DATE NOT NULL,
+   DateCancel DATE DEFAULT NULL,
+   Floors INTEGER NOT NULL,
+   constraint PK_Reservation_Reserv primary key (PK_Reservation),
+   constraint FK_Contract_Cont foreign key (FK_Contract) references Contract (PK_Contract),
+   constraint FK_Hotel_Corpus foreign key (FK_Hotel) references HotelBuilding (PK_HotelBuilding)
+);
+
+
+		
+CREATE TABLE Services (
+  PK_Services SERIAL NOT NULL,
+  NameServices varchar(64) DEFAULT NULL,
+  Cost INTEGER DEFAULT NULL,
+  constraint PK_Services_Serv primary key (PK_Services)
+);
+
+
+CREATE TABLE Entry (
+   PK_Entry SERIAL NOT NULL,
+   FK_Room INTEGER NOT NULL,
+   FK_Client INTEGER NOT NULL,
+   FK_Reservation INTEGER NULL,
+   EntryDate DATE NOT NULL,
+   DepartureDate DATE DEFAULT NULL,
+   Ñost  INTEGER NOT NULL,
+   constraint PK_Entry_Entry primary key (PK_Entry),
+   constraint FK_Room_Room foreign key (FK_Room) references Room (PK_Room),
+   constraint FK_Client_Client foreign key (FK_Client) references Client (PK_client),
+   constraint FK_Reservation_Reserv foreign key (FK_Reservation) references Reservation (PK_Reservation)
+);
+
+CREATE TABLE RealizationServices (
+   PK_Realization SERIAL NOT NULL,
+   FK_Services INTEGER NOT NULL,
+   HowMany INTEGER  DEFAULT NULL,
+   Cost INTEGER DEFAULT NULL,
+   DateServices DATE DEFAULT NULL,
+   FK_Entry INTEGER NOT NULL,
+   constraint PK_Realization_Realiz primary key (PK_Realization),
+   constraint  FK_Services_Serv foreign key (FK_Services) references Services (PK_Services),
+	 constraint  FK_Entry_Entry foreign key (FK_Entry) references Entry (PK_Entry)
+);
+
+
+	
+CREATE TABLE Complaints (
+    PK_Complaints SERIAL NOT NULL,
+    FK_Client INTEGER NOT NULL, 
+    TextComplaints varchar(1000) DEFAULT NULL,
+    constraint PK_Complaints_Complaints primary key (PK_Complaints),
+    constraint FK_Client_Client foreign key (FK_Client) references Client (PK_client)
+);
+
+
