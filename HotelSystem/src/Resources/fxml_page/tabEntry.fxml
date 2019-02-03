@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Tab?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
+<Tab text="Оформление заселения"
+     xmlns="http://javafx.com/javafx"
+     xmlns:fx="http://javafx.com/fxml"
+     fx:controller="Control.ControllerEntry">
+    <!--content-->
+    <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <Pane prefHeight="741.0" prefWidth="806.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                    <children>
+                        <TableView fx:id="tableClient" layoutX="19.0" layoutY="395.0" prefHeight="279.0" prefWidth="552.0">
+                            <columns>
+                                <TableColumn fx:id="surnameColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="176.0" text="Фамилия" />
+                                <TableColumn fx:id="nameColumn" prefWidth="81.0" text="Имя" />
+                                <TableColumn fx:id="patronymicColumn" prefWidth="143.0" text="Отчество" />
+                                <TableColumn fx:id="phoneNumberColumn" prefWidth="151.0" text="Телефон" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="802.0" layoutY="11.0" text="Номер" />
+                        <Button layoutX="484.0" layoutY="697.0" mnemonicParsing="false" onAction="#addClientInEntry" text="Добавить" />
+                        <ComboBox fx:id="CorpusComboBox" layoutX="843.0" layoutY="47.0" onAction="#CorpusAction" prefHeight="30.0" prefWidth="233.0" promptText="Корпус">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Item 1" />
+                                    <String fx:value="Item 2" />
+                                    <String fx:value="Item 3" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <ComboBox fx:id="RoomComboBox" layoutX="843.0" layoutY="87.0" onAction="#RoomAction" prefHeight="30.0" prefWidth="233.0" promptText="Комната">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Item 1" />
+                                    <String fx:value="Item 2" />
+                                    <String fx:value="Item 3" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <ComboBox fx:id="PlaseComboBox" layoutX="843.0" layoutY="128.0" onAction="#PlaseAction" promptText="Мест">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Item 1" />
+                                    <String fx:value="Item 2" />
+                                    <String fx:value="Item 3" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label layoutX="452.0" layoutY="14.0" text="Оформить на" />
+                        <Label layoutX="302.0" layoutY="47.0" text="Информация о клиенте" />
+                        <Label layoutX="844.0" layoutY="171.0" text="Дата заселения" />
+                        <Label layoutX="842.0" layoutY="236.0" text="Дата выселения" />
+                        <DatePicker fx:id="entryDate" editable="false" layoutX="845.0" layoutY="196.0" prefHeight="25.0" prefWidth="231.0" />
+                        <DatePicker fx:id="DepDate" editable="false" layoutX="845.0" layoutY="260.0" prefHeight="25.0" prefWidth="231.0" />
+                        <CheckBox fx:id="clin" layoutX="740.0" layoutY="400.0" mnemonicParsing="false" text="Уборка" />
+                        <Label layoutX="740.0" layoutY="350.0" text="Быт" />
+                        <Label layoutX="950.0" layoutY="350.0" text="Услуги" />
+                        <CheckBox fx:id="praz" layoutX="738.0" layoutY="440.0" mnemonicParsing="false" text="Прачечная" />
+                        <CheckBox fx:id="eda" layoutX="740.0" layoutY="480.0" mnemonicParsing="false" text="Питание" />
+                        <CheckBox fx:id="pul" layoutX="940.0" layoutY="400.0" mnemonicParsing="false" text="Бассейн" />
+                        <CheckBox fx:id="sauna" layoutX="940.0" layoutY="440.0" mnemonicParsing="false" text="Сауна" />
+                        <CheckBox fx:id="biliard" layoutX="940.0" layoutY="480.0" mnemonicParsing="false" text="Бильярд" />
+                        <CheckBox fx:id="him" layoutX="740.0" layoutY="520.0" mnemonicParsing="false" text="Химчистка" />
+                        <Button layoutX="851.0" layoutY="697.0" mnemonicParsing="false" onAction="#AddEntry" prefHeight="25.0" prefWidth="228.0" text="Заселить" />
+                        <TextField fx:id="surnameTexr" editable="false" layoutX="462.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" />
+                        <TextField fx:id="nameText" editable="false" layoutX="462.0" layoutY="150.0" prefWidth="200.0" />
+                        <TextField fx:id="patrText" editable="false" layoutX="462.0" layoutY="200.0" prefWidth="200.0" />
+                        <TextField fx:id="passText" editable="false" layoutX="462.0" layoutY="250.0" prefWidth="200.0" />
+                        <Label layoutX="300.0" layoutY="100.0" text="Фамилия" />
+                        <Label layoutX="300.0" layoutY="150.0" text="Имя" />
+                        <Label layoutX="300.0" layoutY="200.0" text="Отчество" />
+                        <Label layoutX="300.0" layoutY="250.0" text="Паспортные данные" />
+                        <Label layoutX="300.0" layoutY="300.0" text="Телефон" />
+                        <TextField fx:id="telText" editable="false" layoutX="462.0" layoutY="300.0" prefWidth="200.0" />
+                        <Separator layoutX="282.0" layoutY="-17.0" orientation="VERTICAL" prefHeight="380.0" prefWidth="6.0" />
+                        <Separator layoutX="-16.0" layoutY="366.0" prefHeight="10.0" prefWidth="610.0" />
+                        <Separator layoutX="589.0" layoutY="371.0" orientation="VERTICAL" prefHeight="393.0" prefWidth="14.0" />
+                        <TextArea layoutX="14.0" layoutY="41.0" prefHeight="300.0" prefWidth="249.0" promptText="для заметок" />
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </content>
+</Tab>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Tab?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<Tab text="Организации"
+     xmlns="http://javafx.com/javafx"
+     xmlns:fx="http://javafx.com/fxml"
+     fx:controller="Control.ControllerOrg">
+    <!--content-->
+    <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <TableView fx:id="tableOrganiz" layoutX="14.0" layoutY="230.0" prefHeight="476.0" prefWidth="809.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="230.0">
+                    <columns>
+                        <TableColumn fx:id="nameOrgColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="398.0" text="Название компании" />
+                        <TableColumn fx:id="adrOrgColumn" maxWidth="5000.0" minWidth="10.0" prefWidth="740.0" text="Адрес" />
+                    </columns>
+                </TableView>
+                <TextField fx:id="nameOrg" layoutX="441.0" layoutY="69.0" prefHeight="25.0" prefWidth="281.0" />
+                <TextField fx:id="adrOrg" layoutX="443.0" layoutY="115.0" prefHeight="25.0" prefWidth="279.0" />
+                <Label layoutX="365.0" layoutY="72.0" text="Название" />
+                <Label layoutX="365.0" layoutY="118.0" text="Адрес" />
+                <Button layoutX="14.0" layoutY="172.0" mnemonicParsing="false" onAction="#addNewOrg" prefHeight="25.0" prefWidth="250.0" text="Добавить организацию" />
+                <Separator layoutX="356.0" layoutY="208.0" prefWidth="399.0" />
+                <Label layoutX="463.0" layoutY="297.0" />
+                <Button layoutX="289.0" layoutY="172.0" mnemonicParsing="false" onAction="#editOrg" prefHeight="25.0" prefWidth="140.0" text="Изменить" />
+                <Button layoutX="950.0" layoutY="172.0" mnemonicParsing="false" onAction="#deleteOrg" prefHeight="25.0" prefWidth="140.0" text="Удалить" />
+                <CheckBox fx:id="checkDel" layoutX="750.0" layoutY="166.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="188.0" text="подтвердить удаление" />
+                <Button layoutX="456.0" layoutY="171.0" mnemonicParsing="false" onAction="#saveEditText" prefHeight="25.0" prefWidth="190.0" text="Сохранить изменения" />
+            </children>
+        </AnchorPane>
+    </content>
+</Tab>

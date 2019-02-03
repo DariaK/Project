@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="900.0" maxWidth="1600.0" minHeight="800.0" minWidth="1024.0" prefHeight="800.0" prefWidth="1350.0" styleClass="background" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.ControllerMainWin">
+    <children>
+        <TabPane layoutX="186.0" prefHeight="800.0" prefWidth="1164.0" styleClass="tab" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="186.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Занятые комнаты">
+                    <content>
+                        <AnchorPane id="Content" blendMode="SRC_OVER" minHeight="0.0" minWidth="0.0" prefHeight="771.0" prefWidth="1187.0">
+                            <children>
+                                <TableView fx:id="tableOfRooms" layoutX="19.0" layoutY="15.0" prefHeight="737.0" prefWidth="919.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="15.0">
+                                    <columns>
+                                        <TableColumn fx:id="CorpusColumn" prefWidth="76.0" text="Корпус" />
+                                        <TableColumn fx:id="FloorColumn" prefWidth="66.0" text="Этаж" />
+                                        <TableColumn fx:id="NumberRoomColumn" prefWidth="151.0" text="Номер комнаты" />
+                                        <TableColumn fx:id="StateColumn" prefWidth="124.0" text="Статус" />
+                                        <TableColumn fx:id="ClientColumn" prefWidth="115.0" text="Клиент" />
+                                        <TableColumn fx:id="DateEntryColumn" prefWidth="171.0" text="Дата заселения" />
+                                        <TableColumn fx:id="DateDepColumn" prefWidth="213.0" text="Дата выселения" />
+                                    </columns>
+                                </TableView>
+                        <Button layoutX="1003.0" layoutY="329.0" mnemonicParsing="false" onAction="#Btn_up" text="Обновить" />
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <fx:include source="tabEntry.fxml" text="Оформление заселения" />
+                <Tab text="Оформление брони организации">
+                    <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tableReserv" layoutX="14.0" layoutY="345.0" prefHeight="371.0" prefWidth="1128.0">
+                                    <columns>
+                                        <TableColumn fx:id="OrgCol" prefWidth="200.0" text="Организация" />
+                                        <TableColumn fx:id="TselCol" prefWidth="158.0" text="Цель" />
+                                        <TableColumn fx:id="FloorCol" prefWidth="90.0" text="Этаж" />
+                                        <TableColumn fx:id="RoomCol" prefWidth="110.0" text="Комнат" />
+                                        <TableColumn fx:id="PlaseCol" minWidth="0.0" prefWidth="147.0" text="Мест" />
+                                        <TableColumn fx:id="EntryCol" minWidth="0.0" prefWidth="172.0" text="Дата заезда" />
+                                        <TableColumn fx:id="OtmenaCol" prefWidth="250.0" text="Дата отмены брони" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="172.0" layoutY="298.0" mnemonicParsing="false" onAction="#add_Reserv" text="Забронировать" />
+                                <ComboBox fx:id="PlasComboBox" layoutX="174.0" layoutY="203.0" prefHeight="30.0" prefWidth="262.0" promptText="количество мест" />
+                                <ComboBox fx:id="CorpusComboBox" layoutX="173.0" layoutY="109.0" onAction="#onClickCorp" prefHeight="30.0" prefWidth="263.0" promptText="класс корпуса" />
+                                <Label layoutX="24.0" layoutY="59.0" text="Цель" />
+                                <ComboBox fx:id="orgComboBox" layoutX="172.0" layoutY="21.0" prefHeight="30.0" prefWidth="265.0" promptText="Выберите организацию">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Item 1" />
+                                            <String fx:value="Item 2" />
+                                            <String fx:value="Item 3" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                                <Label layoutX="23.0" layoutY="23.0" text="Организация" />
+                                <ComboBox fx:id="objComboBox" layoutX="172.0" layoutY="64.0" prefHeight="30.0" prefWidth="265.0" promptText="Выберите цель" />
+                                <DatePicker fx:id="dateEntryReserv" editable="false" layoutX="172.0" layoutY="248.0" prefHeight="25.0" prefWidth="263.0" />
+                                <Label layoutX="25.0" layoutY="112.0" text="Класс корпуса" />
+                                <Label layoutX="24.0" layoutY="162.0" text="Этаж" />
+                                <Label layoutX="24.0" layoutY="208.0" text="Количество мест" />
+                                <Label layoutX="24.0" layoutY="253.0" text="Дата заселения" />
+                                <ComboBox fx:id="FloorComboBox" layoutX="172.0" layoutY="158.0" prefHeight="30.0" prefWidth="263.0" promptText="Выберите этаж" />
+                                <Button layoutX="893.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Удалить" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <fx:include source="tabClient.fxml" text="Клиенты" />
+                <fx:include source="tabOrg.fxml" text="Организации" />
+                <fx:include source="complain.fxml" text="Жалобы" />
+            </tabs>
+        </TabPane>
+        <AnchorPane prefHeight="800.0" prefWidth="188.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="1164.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Separator layoutX="188.0" layoutY="0.0" orientation="VERTICAL" prefHeight="820.0" />
+                <TextArea fx:id="infoOfRoom" editable="false" layoutX="14.0" layoutY="466.0" prefHeight="325.0" prefWidth="164.0">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </TextArea>
+                <Label layoutX="14.0" layoutY="410.0" prefHeight="56.0" prefWidth="164.0" text="Информация ">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

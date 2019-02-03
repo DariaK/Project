@@ -1,0 +1,128 @@
+
+.root {
+    -fx-font-size: 12px;
+}
+.background {
+    -fx-background-color: #EBEBEB;
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #1d1d1d;
+    -fx-opacity: 0.6;
+}
+
+.table-view {
+    -fx-background-color:  #CECFCF;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: #1d1d1d;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: #1d1d1d;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: #1d1d1d  #1d1d1d #1d1d1d  #1d1d1d;
+    -fx-background-color: #1d1d1d , derive(#1d1d1d,20%);
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10 0 0 80;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #828282;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #e6e6e6;
+}
+
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #e6e6e6;
+    -fx-font-size: 12pt;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12pt;
+}
+
+
+
+.button {
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #828282;
+    -fx-font-family:  Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #828282;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #828282;
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-radius: 0;
+    -fx-font-size: 11pt;
+}
+
+.combo-box {
+    -fx-background-radius: 0;
+    -fx-font-size: 11pt;
+    -fx-background-color: #CECFCF;
+    -fx-text-fill: white;
+}
+
+.check-box{
+    -fx-font-size: 11pt;
+}

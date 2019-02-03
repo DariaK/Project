@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.control.Tab?>
+        <?import java.lang.String?>
+        <?import javafx.collections.FXCollections?>
+
+<Tab text="Жалоб"
+     xmlns="http://javafx.com/javafx"
+     xmlns:fx="http://javafx.com/fxml"
+     fx:controller="Control.ComplainController">
+<!--content-->
+<content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <children>
+            <Button layoutX="23.0" layoutY="257.0" mnemonicParsing="false" onAction="#addCom" text="Добавить жалобу" />
+            <TextField fx:id="text" layoutX="28.0" layoutY="91.0" prefHeight="32.0" prefWidth="1124.0"  />
+            <ComboBox fx:id="fioClient" layoutX="28.0" layoutY="43.0" prefHeight="31.0" prefWidth="422.0" promptText="ФИО клиента" />
+            <Button layoutX="550.0" layoutY="43.0" mnemonicParsing="false" onAction="#refresh_Client" text="Обновить" />
+            <TableView fx:id="tableCom" layoutX="23.0" layoutY="303.0" prefHeight="441.0" prefWidth="1126.0">
+                <columns>
+                    <TableColumn fx:id="famColum" prefWidth="298.0" text="ФИО Клиента" />
+                    <TableColumn fx:id="ComplainsColum" prefWidth="827.0" text="Жалоба" />
+                </columns>
+            </TableView>
+            <Button layoutX="1070.0" layoutY="257.0" mnemonicParsing="false" onAction="#delete"  text="Удалить" />
+        </children>
+    </AnchorPane>
+</content>
+</Tab>

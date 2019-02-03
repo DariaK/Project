@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" stylesheets="@../css/mainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#DFE2E2" height="185.0" layoutX="29.0" layoutY="110.0" smooth="true" stroke="WHITE" strokeLineCap="SQUARE" strokeMiterLimit="10.0" strokeType="INSIDE" width="343.0" />
+        <TextField fx:id="login" layoutX="43.0" layoutY="144.0" prefHeight="31.0" prefWidth="315.0" promptText="Введите логин" />
+        <PasswordField fx:id="password" layoutX="43.0" layoutY="198.0" prefHeight="31.0" prefWidth="315.0" promptText="Введите пароль" />
+        <Button fx:id="bthEnter" layoutX="163.0" layoutY="245.0" mnemonicParsing="false" onAction="#enterToApp" text="Войти" textFill="BLACK" textOverrun="WORD_ELLIPSIS" wrapText="false">
+            <font>
+                <Font size="16.0" fx:id="x1" />
+            </font>
+        </Button>
+        <Label font="$x1" layoutX="26.0" layoutY="79.0" text="Форма входа в приложение" />
+    </children>
+</AnchorPane>
